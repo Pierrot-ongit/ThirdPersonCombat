@@ -42,6 +42,12 @@ namespace ThirdPersonCombat.Combat.Enemy
         [Range(5,30)]
         [GUIColor(1f,1f,0f)]
         public float chasingRange = 8f;
+        
+        [VerticalGroup("Game Data/Stats")]
+        [LabelWidth(100)]
+        [Range(5,30)]
+        [GUIColor(1f,1f,0f)]
+        public float radiusRomaing = 10f;
 
         // TODO. 
         // Resistance to Impact

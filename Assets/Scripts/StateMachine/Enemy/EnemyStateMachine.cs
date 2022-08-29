@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using ThirdPersonCombat.Combat;
 using ThirdPersonCombat.Combat.Enemy;
 using ThirdPersonCombat.Combat.Targeting;
@@ -20,8 +21,9 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         [field:SerializeField] public EnemyData EnemyData { get; private set; }
         [field:SerializeField] public AttackData[] Attacks { get; private set; }
 
-        // TODO A remplacer par Dictionary, for every Attacks.
-        public float PreviousAttackTime { get; private set; } = Mathf.NegativeInfinity;
+       
+        public Dictionary<AttackData, float> Cooldowns { get; private set; }
+        public AttackData nextAttack { get; private set; }
 
         public Health Player { get; private set; }
         private void Start()
@@ -30,7 +32,14 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             
             NavMeshAgent.updatePosition = false;
             NavMeshAgent.updateRotation = false;
-            
+
+            Cooldowns = new Dictionary<AttackData, float>();
+            foreach (AttackData attack in Attacks)
+            {
+                Cooldowns[attack] = 0;
+            }
+
+
             SwitchState(new EnemyIdleState(this));
         }
 
@@ -56,15 +65,21 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             SwitchState(new EnemyDeadState(this));
         }
 
-        public void SetLastAttackTime(float time)
+        public void SetLastAttackTime(AttackData attack, float time)
         {
-            PreviousAttackTime = time;
+            Cooldowns[attack] = time;
+        }
+
+        public void SetNextAttack(AttackData attackData)
+        {
+            nextAttack = attackData;
         }
 
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, EnemyData.detectRange);
+            
         }
     }
 }

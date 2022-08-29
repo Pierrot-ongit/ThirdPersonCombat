@@ -1,3 +1,4 @@
+using ThirdPersonCombat.Combat;
 using UnityEngine;
 
 namespace ThirdPersonCombat.StateMachine.Enemy
@@ -24,13 +25,18 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         protected void FacePlayer()
         {
             if (stateMachine.Player == null) return;
-            
+            FaceDestination(stateMachine.Player.transform.position);
+        }
+        
+        protected void FaceDestination(Vector3 destination)
+        {
             Quaternion currentRotation = stateMachine.transform.rotation;
-            Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
+            Vector3 lookPos = destination - stateMachine.transform.position;
             lookPos.y = 0f;
             //stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
-           stateMachine.transform.rotation = Quaternion.Slerp(currentRotation,Quaternion.LookRotation(lookPos),100f * Time.deltaTime );
+            stateMachine.transform.rotation = Quaternion.Slerp(currentRotation,Quaternion.LookRotation(lookPos),100f * Time.deltaTime );
         }
+        
         
         protected bool IsInDetectRange()
         {
@@ -56,7 +62,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         
 
         
-        protected bool IsInAttackRange(int AttackId)
+        protected bool IsInAttackRange(AttackData attack)
         {
             if (stateMachine.Player.IsDead)
             {
@@ -64,13 +70,24 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             }
             // More performant to use Sqr.
             float playerDistanceSqr = (stateMachine.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
-            return playerDistanceSqr <= stateMachine.Attacks[AttackId].Range * stateMachine.Attacks[AttackId].Range;
+            return playerDistanceSqr <= attack.Range * attack.Range;
         }
 
-        // TODO.
-        protected int SelectAttack()
+
+        protected AttackData SelectNextAttack()
         {
-            return -1;
+            foreach (AttackData attackData in stateMachine.Attacks)
+            {
+               
+                Debug.Log(Time.time);
+                Debug.Log(Time.time - stateMachine.Cooldowns[attackData]);
+                if (Time.time - stateMachine.Cooldowns[attackData] > attackData.Cooldown)
+                {
+                    return attackData;
+                }
+            }
+
+            return null;
         }
     }
 }

@@ -1,5 +1,4 @@
 using ThirdPersonCombat.Combat;
-using ThirdPersonCombat.Combat.Enemy;
 using UnityEngine;
 
 namespace ThirdPersonCombat.StateMachine.Enemy
@@ -9,9 +8,9 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         private AttackData currentAttack;
         private bool alreadyAppliedForce;
         
-        public EnemyAttackingState(EnemyStateMachine newStateMachine, int AttackId) : base(newStateMachine)
+        public EnemyAttackingState(EnemyStateMachine newStateMachine, AttackData attack) : base(newStateMachine)
         {
-            currentAttack = stateMachine.Attacks[AttackId];
+            currentAttack = attack;
             // todo desactivate the agent if the attack apply force.
 
         }
@@ -26,9 +25,8 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.AttackHandler.SetCurrentAttack(currentAttack);
                 stateMachine.AttackHandler.SetTarget(stateMachine.Player);
             }
-           // stateMachine.Controller.enabled = false;
 
-           stateMachine.SetLastAttackTime(Time.time); // TODO A CONSERVER ?
+            stateMachine.SetLastAttackTime(currentAttack, Time.time);
         }
 
         public override void Tick(float deltaTime)
@@ -42,6 +40,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
         public override void Exit()
         {
+            stateMachine.SetNextAttack(null);
             /*
             if (stateMachine.AttackHandler != null)
             {

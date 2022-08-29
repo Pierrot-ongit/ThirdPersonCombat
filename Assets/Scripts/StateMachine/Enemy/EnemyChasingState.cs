@@ -1,5 +1,5 @@
+using ThirdPersonCombat.Combat;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace ThirdPersonCombat.StateMachine.Enemy
 {
@@ -27,9 +27,23 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 return;
             }
             // TODO CONVERT TO METHOD TO SELECT THE ATTACK AND IF CAN ATTACK.
-            else if (IsInAttackRange(0))
+            if (stateMachine.nextAttack == null)
             {
-                stateMachine.SwitchState(new EnemyAttackingState(stateMachine, 0));
+                AttackData nextAttack = SelectNextAttack();
+                if (nextAttack == null)
+                {
+                    // No attack available (cooldowns), switch to roaming.
+                    stateMachine.SwitchState(new EnemyRoamingState(stateMachine));
+                    return;
+                }
+                stateMachine.SetNextAttack(nextAttack);
+            }
+            
+            
+
+            if (IsInAttackRange(stateMachine.nextAttack))
+            {
+                stateMachine.SwitchState(new EnemyAttackingState(stateMachine, stateMachine.nextAttack));
                 return;
             }
             MoveToPlayer(deltaTime);
