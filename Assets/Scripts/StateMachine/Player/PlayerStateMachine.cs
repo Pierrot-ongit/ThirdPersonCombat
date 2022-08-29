@@ -12,7 +12,7 @@ namespace ThirdPersonCombat.StateMachine.Player
         [field:SerializeField] public Animator Animator { get; private set; }
         [field:SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field:SerializeField] public Targeter Targeter { get; private set; }
-        [field:SerializeField] public WeaponDamage WeaponDamage { get; private set; }
+        [field:SerializeField] public AttackHandler AttackHandler { get; private set; }
         [field:SerializeField] public Health Health { get; private set; }
         [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
         [field:SerializeField] public LedgeDetector LedgeDetector { get; private set; }
@@ -22,7 +22,7 @@ namespace ThirdPersonCombat.StateMachine.Player
         [field:SerializeField] public float DodgeLength { get; private set; }
         [field:SerializeField] public float DodgeDuration { get; private set; }
         [field:SerializeField] public float JumpForce { get; private set; }
-        [field:SerializeField] public Attack[] Attacks { get; private set; }
+        [field:SerializeField] public PlayerAttackData[] Attacks { get; private set; }
 
          public Transform  MainCameraTransform { get; private set; }
         private void Start()
@@ -42,8 +42,6 @@ namespace ThirdPersonCombat.StateMachine.Player
         {
             Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDeath;
-
-
         }
 
         private void HandleTakeDamage()

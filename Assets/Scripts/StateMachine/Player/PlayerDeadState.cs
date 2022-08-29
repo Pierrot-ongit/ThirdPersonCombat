@@ -9,7 +9,7 @@ namespace ThirdPersonCombat.StateMachine.Player
         public override void Enter()
         {
             stateMachine.Ragdoll.ToggleRagdoll(true);
-            stateMachine.WeaponDamage.gameObject.SetActive(false);
+            stateMachine.AttackHandler.DisableMeleeContact();
         }
 
         public override void Tick(float deltaTime)

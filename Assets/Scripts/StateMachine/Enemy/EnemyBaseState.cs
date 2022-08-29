@@ -31,6 +31,17 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             stateMachine.transform.rotation = Quaternion.Slerp(currentRotation,Quaternion.LookRotation(lookPos),10f * Time.deltaTime );
         }
         
+        protected bool IsInDetectRange()
+        {
+            if (stateMachine.Player.IsDead)
+            {
+                return false;
+            }
+            // More performant to use Sqr.
+            float playerDistanceSqr = (stateMachine.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
+            return playerDistanceSqr <= stateMachine.EnemyData.detectRange * stateMachine.EnemyData.detectRange;
+        }
+        
         protected bool IsInChaseRange()
         {
             if (stateMachine.Player.IsDead)
@@ -39,10 +50,12 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             }
             // More performant to use Sqr.
             float playerDistanceSqr = (stateMachine.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
-            return playerDistanceSqr <= stateMachine.PlayerChasingRange * stateMachine.PlayerChasingRange;
+            return playerDistanceSqr <= stateMachine.EnemyData.chasingRange * stateMachine.EnemyData.chasingRange;
         }
         
-        protected bool IsInAttackRange()
+
+        
+        protected bool IsInAttackRange(int AttackId)
         {
             if (stateMachine.Player.IsDead)
             {
@@ -50,7 +63,13 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             }
             // More performant to use Sqr.
             float playerDistanceSqr = (stateMachine.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
-            return playerDistanceSqr <= stateMachine.AttackRange * stateMachine.AttackRange;
+            return playerDistanceSqr <= stateMachine.Attacks[AttackId].Range * stateMachine.Attacks[AttackId].Range;
+        }
+
+        // TODO.
+        protected int SelectAttack()
+        {
+            return -1;
         }
     }
 }

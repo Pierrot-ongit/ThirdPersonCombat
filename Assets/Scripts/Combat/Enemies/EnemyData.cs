@@ -36,10 +36,16 @@ namespace ThirdPersonCombat.Combat.Enemy
         [Range(5,30)]
         [GUIColor(1f,1f,0f)]
         public float detectRange = 10f;
+        
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)]
-        [Range(1,20)]
-        [GUIColor(0.8f,0.4f,0.4f)]
-        public int damage = 1;
+        [Range(5,30)]
+        [GUIColor(1f,1f,0f)]
+        public float chasingRange = 8f;
+
+        // TODO. 
+        // Resistance to Impact
+        // Glorykill cooldown ?
+        
     }
 }

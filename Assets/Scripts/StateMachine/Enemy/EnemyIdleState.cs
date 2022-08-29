@@ -21,7 +21,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         public override void Tick(float deltaTime)
         {
             Move(deltaTime);
-            if (IsInChaseRange())
+            if (IsInDetectRange())
             {
                 // Transition to chasing state.
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));

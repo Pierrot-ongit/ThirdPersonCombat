@@ -1,4 +1,3 @@
-using ThirdPersonCombat.StateMachine.Enemy;
 using UnityEngine;
 
 namespace ThirdPersonCombat.StateMachine.Enemy
@@ -10,7 +9,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         public override void Enter()
         {
             stateMachine.Ragdoll.ToggleRagdoll(true);
-            stateMachine.WeaponDamage.gameObject.SetActive(false);
+            stateMachine.AttackHandler.DisableMeleeContact();
             GameObject.Destroy(stateMachine.Target);
         }
 

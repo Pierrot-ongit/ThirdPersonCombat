@@ -26,9 +26,10 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.SwitchState(new EnemyIdleState(stateMachine));
                 return;
             }
-            else if (IsInAttackRange())
+            // TODO CONVERT TO METHOD TO SELECT THE ATTACK AND IF CAN ATTACK.
+            else if (IsInAttackRange(0))
             {
-                stateMachine.SwitchState(new EnemyAttackingState(stateMachine));
+                stateMachine.SwitchState(new EnemyAttackingState(stateMachine, 0));
                 return;
             }
             MoveToPlayer(deltaTime);
@@ -48,7 +49,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             if (stateMachine.NavMeshAgent.isOnNavMesh)
             {
                 stateMachine.NavMeshAgent.destination = stateMachine.Player.transform.position;
-                Move(stateMachine.NavMeshAgent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+                Move(stateMachine.NavMeshAgent.desiredVelocity.normalized * stateMachine.EnemyData.speed, deltaTime);
             }
             stateMachine.NavMeshAgent.velocity = stateMachine.Controller.velocity;
         }

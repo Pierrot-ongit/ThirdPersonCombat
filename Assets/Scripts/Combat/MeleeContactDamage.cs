@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace ThirdPersonCombat.Combat
 {
-    public class WeaponDamage : MonoBehaviour
+    public class MeleeContactDamage : MonoBehaviour
     {
         [SerializeField] private Collider myCollider;
         private List<Collider> alreadyCollideWith = new List<Collider>();

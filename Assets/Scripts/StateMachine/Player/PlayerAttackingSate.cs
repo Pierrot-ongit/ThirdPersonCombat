@@ -5,7 +5,7 @@ namespace ThirdPersonCombat.StateMachine.Player
 {
     public class PlayerAttackingSate : PlayerBaseState
     {
-        private Attack currentAttack;
+        private PlayerAttackData currentAttack;
         private bool alreadyAppliedForce;
         public PlayerAttackingSate(PlayerStateMachine newStateMachine, int AttackId) : base(newStateMachine)
         {
@@ -15,7 +15,7 @@ namespace ThirdPersonCombat.StateMachine.Player
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(currentAttack.AnimationName, currentAttack.TransistionDuration);
-            stateMachine.WeaponDamage.SetAttackDamage(currentAttack.Damage, currentAttack.Knockback);
+            stateMachine.AttackHandler.SetCurrentAttack(currentAttack);
         }
 
         public override void Tick(float deltaTime)

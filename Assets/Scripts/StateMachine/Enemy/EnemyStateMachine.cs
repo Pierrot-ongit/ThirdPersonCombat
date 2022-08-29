@@ -1,5 +1,6 @@
 using System;
 using ThirdPersonCombat.Combat;
+using ThirdPersonCombat.Combat.Enemy;
 using ThirdPersonCombat.Combat.Targeting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,17 +13,16 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         [field:SerializeField] public CharacterController Controller { get; private set; }
         [field:SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field:SerializeField] public NavMeshAgent NavMeshAgent { get; private set; }
-        [field:SerializeField] public WeaponDamage WeaponDamage { get; private set; }
+        [field:SerializeField] public AttackHandler AttackHandler { get; private set; }
         [field:SerializeField] public Health Health { get; private set; }
         [field:SerializeField] public Target Target { get; private set; }
         [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
-        [field:SerializeField] public float MovementSpeed { get; private set; }
-        [field:SerializeField] public float PlayerChasingRange { get; private set; }
-        [field:SerializeField] public float AttackRange { get; private set; }
-        [field:SerializeField] public int AttackDamage { get; private set; }
-        [field:SerializeField] public float AttackKnockback { get; private set; }
-        
-        
+        [field:SerializeField] public EnemyData EnemyData { get; private set; }
+        [field:SerializeField] public AttackData[] Attacks { get; private set; }
+
+        // TODO A remplacer par Dictionary, for every Attacks.
+        public float PreviousAttackTime { get; private set; } = Mathf.NegativeInfinity;
+
         public Health Player { get; private set; }
         private void Start()
         {
@@ -44,7 +44,6 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         {
             Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDeath;
-
         }
 
         private void HandleTakeDamage()
@@ -57,10 +56,15 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             SwitchState(new EnemyDeadState(this));
         }
 
+        public void SetLastAttackTime(float time)
+        {
+            PreviousAttackTime = time;
+        }
+
         private void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, PlayerChasingRange);
+            Gizmos.DrawWireSphere(transform.position, EnemyData.detectRange);
         }
     }
 }

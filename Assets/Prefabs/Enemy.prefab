@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 5635482739415001385}
   - component: {fileID: 1528321942874580385}
   - component: {fileID: 5543137673728334870}
+  - component: {fileID: 115742784196168649}
   m_Layer: 0
   m_Name: WeaponLogic
   m_TagString: Untagged
@@ -404,6 +405,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &115742784196168649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789673881154947211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab61549defc4f90b9ff6d5d594ccad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StartPosition>k__BackingField: {fileID: 2306131618478734173}
+  _contactDamage: {fileID: 0}
 --- !u!1 &916053191104615789
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,10 +2441,10 @@ GameObject:
   - component: {fileID: 5950820444103044148}
   - component: {fileID: 5444591914383934459}
   - component: {fileID: 4280986706283513504}
-  - component: {fileID: 2006325166845600630}
   - component: {fileID: 6946467320266121225}
   - component: {fileID: 4355962092789779300}
   - component: {fileID: 1191836202222733494}
+  - component: {fileID: 4313750256050852514}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -2541,19 +2556,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
---- !u!114 &2006325166845600630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6351173393202745411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d513b4a0634a23b102e5f1c8fa849c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponLogic: {fileID: 789673881154947211}
 --- !u!114 &6946467320266121225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2570,15 +2572,14 @@ MonoBehaviour:
   <Controller>k__BackingField: {fileID: 3283566067746184451}
   <ForceReceiver>k__BackingField: {fileID: 4355962092789779300}
   <NavMeshAgent>k__BackingField: {fileID: 879925195719505364}
-  <WeaponDamage>k__BackingField: {fileID: 1528321942874580385}
+  <AttackHandler>k__BackingField: {fileID: 4313750256050852514}
   <Health>k__BackingField: {fileID: 4280986706283513504}
   <Target>k__BackingField: {fileID: 5444591914383934459}
-  <Ragdoll>k__BackingField: {fileID: 0}
-  <MovementSpeed>k__BackingField: 4
-  <PlayerChasingRange>k__BackingField: 12
-  <AttackRange>k__BackingField: 1.5
-  <AttackDamage>k__BackingField: 20
-  <AttackKnockback>k__BackingField: 8
+  <Ragdoll>k__BackingField: {fileID: 1191836202222733494}
+  <EnemyData>k__BackingField: {fileID: 11400000, guid: cb12edf5f7e3d27479ed9d27ac17e994,
+    type: 2}
+  <Attacks>k__BackingField:
+  - {fileID: 11400000, guid: 7e1404b7cc66b674bbcba3aa9b4a392f, type: 2}
 --- !u!114 &4355962092789779300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2608,6 +2609,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5950820444103044148}
   controller: {fileID: 3283566067746184451}
+--- !u!114 &4313750256050852514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6351173393202745411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab61549defc4f90b9ff6d5d594ccad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StartPosition>k__BackingField: {fileID: 2306131618478734173}
+  _contactDamage: {fileID: 1528321942874580385}
 --- !u!1 &6394839787472354900
 GameObject:
   m_ObjectHideFlags: 0

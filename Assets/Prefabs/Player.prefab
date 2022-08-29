@@ -1600,9 +1600,9 @@ GameObject:
   - component: {fileID: 1282542309296899438}
   - component: {fileID: 5170820503184280288}
   - component: {fileID: 5334094542093548855}
-  - component: {fileID: 7415241088522362898}
   - component: {fileID: 4395592712957142989}
   - component: {fileID: 8996598053176562916}
+  - component: {fileID: 2824694490570292087}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   <Animator>k__BackingField: {fileID: 1282542309296899438}
   <ForceReceiver>k__BackingField: {fileID: 5334094542093548855}
   <Targeter>k__BackingField: {fileID: 6309728017883587900}
-  <WeaponDamage>k__BackingField: {fileID: 6955487665144626592}
+  <AttackHandler>k__BackingField: {fileID: 2824694490570292087}
   <Health>k__BackingField: {fileID: 4395592712957142989}
   <Ragdoll>k__BackingField: {fileID: 8996598053176562916}
   <LedgeDetector>k__BackingField: {fileID: 3521728067921531935}
@@ -1671,32 +1671,11 @@ MonoBehaviour:
   <RotationDamping>k__BackingField: 8
   <DodgeLength>k__BackingField: 0
   <DodgeDuration>k__BackingField: 0.1
-  <JumpForce>k__BackingField: 0
+  <JumpForce>k__BackingField: 4
   <Attacks>k__BackingField:
-  - <AnimationName>k__BackingField: Attack1
-    <TransistionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.6
-    <ForceTime>k__BackingField: 0.35
-    <Force>k__BackingField: 12
-    <Damage>k__BackingField: 10
-    <Knockback>k__BackingField: 5
-  - <AnimationName>k__BackingField: Attack2
-    <TransistionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 2
-    <ComboAttackTime>k__BackingField: 0.5
-    <ForceTime>k__BackingField: 0.35
-    <Force>k__BackingField: 12
-    <Damage>k__BackingField: 15
-    <Knockback>k__BackingField: 10
-  - <AnimationName>k__BackingField: Attack3
-    <TransistionDuration>k__BackingField: 0.2
-    <ComboStateIndex>k__BackingField: -1
-    <ComboAttackTime>k__BackingField: 0
-    <ForceTime>k__BackingField: 0.35
-    <Force>k__BackingField: 18
-    <Damage>k__BackingField: 20
-    <Knockback>k__BackingField: 15
+  - {fileID: 11400000, guid: 747df823c666ef74791a278683625f75, type: 2}
+  - {fileID: 11400000, guid: 0e7cf5b62022dd34784560b79d5e38a4, type: 2}
+  - {fileID: 11400000, guid: 7234f81f83e5a164bbd70985c9e6cc56, type: 2}
 --- !u!95 &1282542309296899438
 Animator:
   serializedVersion: 4
@@ -1750,19 +1729,6 @@ MonoBehaviour:
   controller: {fileID: 5170820503184280288}
   agent: {fileID: 0}
   drag: 0.3
---- !u!114 &7415241088522362898
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3080703550730329166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61d513b4a0634a23b102e5f1c8fa849c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponLogic: {fileID: 9171043725891211402}
 --- !u!114 &4395592712957142989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,6 +1756,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1282542309296899438}
   controller: {fileID: 5170820503184280288}
+--- !u!114 &2824694490570292087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3080703550730329166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab61549defc4f90b9ff6d5d594ccad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <StartPosition>k__BackingField: {fileID: 6175118876897944412}
+  _contactDamage: {fileID: 6955487665144626592}
 --- !u!1 &3585374052657926548
 GameObject:
   m_ObjectHideFlags: 0
