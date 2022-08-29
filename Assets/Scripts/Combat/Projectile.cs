@@ -49,6 +49,12 @@ namespace ThirdPersonCombat.Combat
             {
                 return targetPoint;
             }
+            CharacterController targetController = target.GetComponent<CharacterController>();
+            if (targetController != null)
+            {
+                return target.transform.position + targetController.center;
+            }
+            
             CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
             if (targetCapsule == null)
             {

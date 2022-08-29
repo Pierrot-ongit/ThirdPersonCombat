@@ -28,7 +28,8 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             Quaternion currentRotation = stateMachine.transform.rotation;
             Vector3 lookPos = stateMachine.Player.transform.position - stateMachine.transform.position;
             lookPos.y = 0f;
-            stateMachine.transform.rotation = Quaternion.Slerp(currentRotation,Quaternion.LookRotation(lookPos),10f * Time.deltaTime );
+            //stateMachine.transform.rotation = Quaternion.LookRotation(lookPos);
+           stateMachine.transform.rotation = Quaternion.Slerp(currentRotation,Quaternion.LookRotation(lookPos),100f * Time.deltaTime );
         }
         
         protected bool IsInDetectRange()

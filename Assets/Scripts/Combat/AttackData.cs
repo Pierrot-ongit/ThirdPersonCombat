@@ -39,13 +39,13 @@ namespace ThirdPersonCombat.Combat
         
         [VerticalGroup("Stats")]
         [LabelWidth(100)]
-        [Range(1,50)]
+        [Range(0,50)]
         [GUIColor(0.5f,1f,0.5f)]
         public int Force = 1;
 
         [VerticalGroup("Stats")]
         [LabelWidth(100)]
-        [Range(1,50)]
+        [Range(0,50)]
         [GUIColor(1f,1f,0f)]
         public float Knockback = 1;
         

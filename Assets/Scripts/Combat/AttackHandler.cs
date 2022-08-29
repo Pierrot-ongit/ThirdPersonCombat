@@ -7,7 +7,7 @@ namespace ThirdPersonCombat.Combat
     public class AttackHandler : MonoBehaviour
     {
         [Tooltip("For projectile attack")]
-        [field:SerializeField] public Transform StartPosition { get; private set; }
+        [field:SerializeField] public Transform ProjectileStartPosition { get; private set; }
         [SerializeField] private MeleeContactDamage _contactDamage;
 
         public AttackData CurrentAttack { get; private set; }
@@ -16,7 +16,7 @@ namespace ThirdPersonCombat.Combat
         public void SetCurrentAttack(AttackData attack)
         {
             CurrentAttack = attack;
-            if (CurrentAttack != null)
+            if (_contactDamage != null && CurrentAttack != null)
             {
                 _contactDamage.SetAttackDamage(CurrentAttack.Damage, CurrentAttack.Knockback);
             }
@@ -27,22 +27,29 @@ namespace ThirdPersonCombat.Combat
             this.Target = target;
         }
 
+        // Animation Event.
         public void LaunchProjectile()
         {
             if (CurrentAttack == null) { return; }
-            Projectile projectileInstance = Instantiate(CurrentAttack.ProjectilePrefab, StartPosition.position, Quaternion.identity);
+            Projectile projectileInstance = Instantiate(CurrentAttack.ProjectilePrefab, ProjectileStartPosition.position, Quaternion.identity);
             projectileInstance.SetTarget(gameObject, CurrentAttack.Damage, Target);
         }
 
 
         public void EnableMeleeContact()
         {
-            _contactDamage.gameObject.SetActive(true);
+            if (_contactDamage != null)
+            {
+                _contactDamage.gameObject.SetActive(true);
+            }
         }
 
         public void DisableMeleeContact()
         {
-            _contactDamage.gameObject.SetActive(false);
+            if (_contactDamage != null)
+            {
+                _contactDamage.gameObject.SetActive(false);
+            }
         }
     }
 }

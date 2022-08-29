@@ -26,9 +26,9 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.AttackHandler.SetCurrentAttack(currentAttack);
                 stateMachine.AttackHandler.SetTarget(stateMachine.Player);
             }
-            
-            
-            stateMachine.SetLastAttackTime(Time.time); // TODO A CONSERVER ?
+           // stateMachine.Controller.enabled = false;
+
+           stateMachine.SetLastAttackTime(Time.time); // TODO A CONSERVER ?
         }
 
         public override void Tick(float deltaTime)
@@ -42,7 +42,6 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
         public override void Exit()
         {
-            // todo reactivate the agent.
             /*
             if (stateMachine.AttackHandler != null)
             {

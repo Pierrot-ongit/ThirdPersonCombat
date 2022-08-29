@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c27afc831fa84277b9aff1a67f7bf4c2, type: 3}
-  m_Name: KnightSwordAttack
+  m_Name: ArcherBowAttack
   m_EditorClassIdentifier: 
   AnimationName: Attack
-  TransistionDuration: 0.1
+  TransistionDuration: 0.15
   Damage: 10
-  Cooldown: 0
-  Range: 1.5
-  ForceTime: 0.35
-  Force: 5
-  Knockback: 2
-  ProjectilePrefab: {fileID: 0}
+  Cooldown: 5
+  Range: 13.9
+  ForceTime: 0.1
+  Force: 0
+  Knockback: 0
+  ProjectilePrefab: {fileID: 6748320983982125958, guid: 026df7746530ba54d9dfb500a18e3f8d,
+    type: 3}
