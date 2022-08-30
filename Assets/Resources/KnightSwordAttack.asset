@@ -15,7 +15,7 @@ MonoBehaviour:
   AnimationName: Attack
   TransistionDuration: 0.1
   Damage: 10
-  Cooldown: 0
+  Cooldown: 3
   Range: 1.5
   ForceTime: 0.35
   Force: 5

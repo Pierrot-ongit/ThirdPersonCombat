@@ -5,10 +5,11 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 {
     public class EnemyRoamingState : EnemyBaseState
     {
-        private readonly int LocomotionHash= Animator.StringToHash("Locomotion");
+        private readonly int TargetingBlendTreeHash= Animator.StringToHash("TargetingBlendTree");
         private readonly int LocomotionSpeedHash = Animator.StringToHash("Speed");
+        private readonly int TargetingForwardHash = Animator.StringToHash("TargetingForward");
+        private readonly int TargetingRightHash = Animator.StringToHash("TargetingRight");
         private const float AnimatorDampTime = 0.1f;
-        private const float MaxTimeRoaming = 15f;
 
         private float timeRoaming;
         
@@ -21,8 +22,8 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
         public override void Enter()
         {
-            stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, AnimatorDampTime);
-            destination = RandomNavmeshLocation(stateMachine.EnemyData.radiusRomaing);
+            stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, AnimatorDampTime);
+            destination = RandomNavmeshLocation(stateMachine.EnemyData.radiusRoaming);
             stateMachine.NavMeshAgent.SetDestination(destination);
             timeRoaming = 0f;
         }
@@ -33,7 +34,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             FacePlayer();
             MoveRoaming(deltaTime);
 
-            if (timeRoaming > MaxTimeRoaming)
+            if (timeRoaming > stateMachine.EnemyData.maxTimeRoaming)
             {
                 stateMachine.SwitchState(new EnemyIdleState(stateMachine));
                 return;
@@ -44,8 +45,8 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.SwitchState(new EnemyIdleState(stateMachine));
                 return;
             }
-            
-            stateMachine.Animator.SetFloat(LocomotionSpeedHash, 1f, AnimatorDampTime, deltaTime);
+
+            UpdateAnimator(deltaTime);
             timeRoaming += deltaTime;
         }
 
@@ -74,6 +75,12 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 finalPosition = hit.position;            
             }
             return finalPosition;
+        }
+        
+        private void UpdateAnimator(float deltaTime)
+        {
+            stateMachine.Animator.SetFloat(TargetingRightHash, stateMachine.Controller.velocity.x, AnimatorDampTime, deltaTime);
+            stateMachine.Animator.SetFloat(TargetingForwardHash, stateMachine.Controller.velocity.y, AnimatorDampTime, deltaTime);
         }
     }
 }

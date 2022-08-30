@@ -12,7 +12,6 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         {
             currentAttack = attack;
             // todo desactivate the agent if the attack apply force.
-
         }
 
         public override void Enter()

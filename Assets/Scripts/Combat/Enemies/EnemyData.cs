@@ -46,8 +46,14 @@ namespace ThirdPersonCombat.Combat.Enemy
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)]
         [Range(5,30)]
-        [GUIColor(1f,1f,0f)]
-        public float radiusRomaing = 10f;
+        [GUIColor(1f,0.2f,0f)]
+        public float radiusRoaming = 10f;
+        
+        [VerticalGroup("Game Data/Stats")]
+        [LabelWidth(100)]
+        [Range(5,30)]
+        [GUIColor(1f,0.2f,0f)]
+        public float maxTimeRoaming = 10f;
 
         // TODO. 
         // Resistance to Impact
