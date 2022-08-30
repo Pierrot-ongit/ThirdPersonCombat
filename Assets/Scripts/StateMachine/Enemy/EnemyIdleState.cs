@@ -16,6 +16,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionHash, AnimatorDampTime);
+            stateMachine.AttackTokenSubscriber.ReleaseToken();
         }
 
         public override void Tick(float deltaTime)

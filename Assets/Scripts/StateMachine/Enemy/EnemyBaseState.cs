@@ -78,9 +78,6 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         {
             foreach (AttackData attackData in stateMachine.Attacks)
             {
-               
-                Debug.Log(Time.time);
-                Debug.Log(Time.time - stateMachine.Cooldowns[attackData]);
                 if (Time.time - stateMachine.Cooldowns[attackData] > attackData.Cooldown)
                 {
                     return attackData;

@@ -26,7 +26,8 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.SwitchState(new EnemyIdleState(stateMachine));
                 return;
             }
-            // TODO CONVERT TO METHOD TO SELECT THE ATTACK AND IF CAN ATTACK.
+           
+            
             if (stateMachine.nextAttack == null)
             {
                 AttackData nextAttack = SelectNextAttack();
@@ -39,13 +40,20 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.SetNextAttack(nextAttack);
             }
             
+            // TODO Check for light or heavy tokens.
+            if (!stateMachine.AttackTokenSubscriber.RequestToken())
+            {
+                stateMachine.SwitchState(new EnemyRoamingState(stateMachine));
+                return;
+            }
             
-
             if (IsInAttackRange(stateMachine.nextAttack))
             {
                 stateMachine.SwitchState(new EnemyAttackingState(stateMachine, stateMachine.nextAttack));
                 return;
             }
+            
+            // Not yet in Attack Range.
             MoveToPlayer(deltaTime);
             FacePlayer();
             

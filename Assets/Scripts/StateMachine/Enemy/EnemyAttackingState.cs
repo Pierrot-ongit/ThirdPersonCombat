@@ -40,6 +40,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         public override void Exit()
         {
             stateMachine.SetNextAttack(null);
+            stateMachine.AttackTokenSubscriber.ReleaseToken();
             /*
             if (stateMachine.AttackHandler != null)
             {
