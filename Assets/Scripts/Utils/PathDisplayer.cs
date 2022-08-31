@@ -17,7 +17,7 @@ public class PathDisplayer : MonoBehaviour {
     IEnumerator DrawPath(NavMeshPath path) {
         yield return new WaitForEndOfFrame();
         path = agent.path;
-        if (path.corners.Length < 2)
+        if (path.corners.Length < 1)
             yield return null;
         
         switch (path.status) {
@@ -31,7 +31,7 @@ public class PathDisplayer : MonoBehaviour {
                 color = Color.yellow;
                 break;
         }
-
+        
         Vector3 previousCorner = path.corners[0];
     
         int i = 1;

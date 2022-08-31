@@ -17,6 +17,12 @@ namespace ThirdPersonCombat.StateMachine.Player
         public override void Tick(float deltaTime)
         {
             Move(deltaTime);
+            float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Impact");
+            if (normalizedTime >= 1f)
+            {
+                ReturnToLocomotion();
+            }
+
             duration -= deltaTime;
             if (duration <= 0f)
             {

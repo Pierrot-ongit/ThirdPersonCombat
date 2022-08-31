@@ -15,9 +15,9 @@ MonoBehaviour:
   enemyName: Archer
   description: A nasty gobelin with an arc.
   enemyModel: {fileID: 0}
-  health: 40
-  speed: 3.9
+  health: 35
+  speed: 3.5
   detectRange: 14
   chasingRange: 8
-  radiusRoaming: 10
+  radiusRoaming: 8.4
   maxTimeRoaming: 7
