@@ -36,13 +36,13 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
             if (timeRoaming > stateMachine.EnemyData.maxTimeRoaming)
             {
-                stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+                stateMachine.SwitchState(new EnemyIdleState(stateMachine, true));
                 return;
             }
             
             if (Vector3.Distance(stateMachine.transform.position, destination) < 2f)
             {
-                stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+                stateMachine.SwitchState(new EnemyIdleState(stateMachine, true));
                 return;
             }
 
@@ -66,17 +66,25 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         }
         
         public Vector3 RandomNavmeshLocation(float radius) {
-            Vector3 randomDirection = Random.insideUnitSphere * radius;
-            randomDirection += stateMachine.transform.position;
-            NavMeshHit hit;
+            
             Vector3 finalPosition = Vector3.zero;
-            // TODO Better check to avoid going to inacessible height.
-            if (NavMesh.SamplePosition(randomDirection, out hit, radius, 1)) {
-                finalPosition = hit.position;            
+            for (int i = 0; i < 30; i++)
+            {
+                Vector3 randomPoint  = stateMachine.Player.transform.position + Random.insideUnitSphere * radius;
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(randomPoint, out hit, radius,  NavMesh.AllAreas)) {
+                    
+                    NavMeshPath path = new NavMeshPath();
+                    stateMachine.NavMeshAgent.CalculatePath(hit.position, path);
+                    if (path.status == NavMeshPathStatus.PathComplete)
+                    {
+                        return hit.position;
+                    }
+                }
             }
             return finalPosition;
         }
-        
+
         private void UpdateAnimator(float deltaTime)
         {
             stateMachine.Animator.SetFloat(TargetingRightHash, stateMachine.Controller.velocity.x, AnimatorDampTime, deltaTime);

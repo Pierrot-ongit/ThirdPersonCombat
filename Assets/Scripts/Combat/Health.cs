@@ -37,6 +37,7 @@ namespace ThirdPersonCombat.Combat
                 OnDie?.Invoke();
                 return;
             }
+
             OnTakeDamage?.Invoke();
         }
     }

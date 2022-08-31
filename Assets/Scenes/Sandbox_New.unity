@@ -112,7 +112,7 @@ NavMeshSettings:
     agentSlope: 45
     agentClimb: 0.4
     ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    maxJumpAcrossDistance: 2
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
@@ -3730,6 +3730,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -162.37102
       objectReference: {fileID: 0}
+    - target: {fileID: 5495501084698663909, guid: 9cb86567dc8ff524a90a62b982170d9d,
+        type: 3}
+      propertyPath: m_WalkableMask
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5506933246767804472, guid: 9cb86567dc8ff524a90a62b982170d9d,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7108,12 +7113,12 @@ PrefabInstance:
     - target: {fileID: 2030658446392597849, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.885239
+      value: 2.046255
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446392597849, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.527567
+      value: -5.42135
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446981153427, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
@@ -7153,22 +7158,22 @@ PrefabInstance:
     - target: {fileID: 2030658447040344632, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.885239
+      value: 2.046255
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447040344632, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.527567
+      value: -5.42135
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447413786828, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.885239
+      value: 2.046255
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447413786828, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5.527567
+      value: -5.42135
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447497733159, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
@@ -7188,7 +7193,7 @@ PrefabInstance:
     - target: {fileID: 2786114225005437583, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0000010606416
+      value: -0.00000090972986
       objectReference: {fileID: 0}
     - target: {fileID: 2786114225005437583, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}

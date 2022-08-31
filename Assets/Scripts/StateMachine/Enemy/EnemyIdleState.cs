@@ -8,9 +8,19 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         private readonly int LocomotionHash= Animator.StringToHash("Locomotion");
         private readonly int LocomotionSpeedHash = Animator.StringToHash("Speed");
         private const float AnimatorDampTime = 0.1f;
+        private const float waitCooldown = 2f; // TODO A passer dans EnemyData.
+        private float waitRemainingTime;
         
-        public EnemyIdleState(EnemyStateMachine newStateMachine) : base(newStateMachine)
+        public EnemyIdleState(EnemyStateMachine newStateMachine, bool shouldWait = false) : base(newStateMachine)
         {
+            if (shouldWait)
+            {
+                waitRemainingTime = waitCooldown;
+            }
+            else
+            {
+                waitRemainingTime = 0;
+            }
         }
 
         public override void Enter()
@@ -22,7 +32,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         public override void Tick(float deltaTime)
         {
             Move(deltaTime);
-            if (IsInDetectRange())
+            if (waitRemainingTime <= 0 && IsInDetectRange())
             {
                 // Transition to chasing state.
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
@@ -32,6 +42,10 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             FacePlayer();
             
             stateMachine.Animator.SetFloat(LocomotionSpeedHash, 0, AnimatorDampTime, deltaTime);
+            if (waitRemainingTime > 0)
+            {
+                waitRemainingTime = Mathf.Max(waitRemainingTime - Time.deltaTime, 0);
+            }
         }
 
         public override void Exit()
