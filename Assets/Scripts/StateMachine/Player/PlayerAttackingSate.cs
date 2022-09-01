@@ -72,8 +72,27 @@ namespace ThirdPersonCombat.StateMachine.Player
         private void TryApplyForce()
         {
             if (alreadyAppliedForce) return;
-            
-            stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * currentAttack.Force);
+
+            if (stateMachine.Targeter.CurrentTarget != null)
+            {
+                Vector3 targetPosition = stateMachine.transform.InverseTransformPoint(stateMachine.Targeter.CurrentTarget.transform.position);
+                // Is target in front of us ?
+                float distanceWithTarget = Vector3.Dot(Vector3.forward, targetPosition);
+                float force = currentAttack.Force > 0 ? currentAttack.Force : 5;
+                if (distanceWithTarget > Mathf.Max(force / 2, 3))
+                {
+                    stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * currentAttack.Force);
+                }
+                else if (distanceWithTarget < 0.9)
+                {
+                    // Target too close.
+                    stateMachine.ForceReceiver.AddForce(-stateMachine.transform.forward * 0.2f);
+                }
+            }
+            else
+            {
+                stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * currentAttack.Force);
+            }
             alreadyAppliedForce = true;
         }
 

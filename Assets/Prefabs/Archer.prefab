@@ -3529,6 +3529,11 @@ PrefabInstance:
         type: 2}
     - target: {fileID: 8668154577701301160, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
+      propertyPath: _contactDamage.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8668154577701301160, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
       propertyPath: <StartPosition>k__BackingField
       value: 
       objectReference: {fileID: 7455062557268730717}

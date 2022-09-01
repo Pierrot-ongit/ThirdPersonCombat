@@ -23,7 +23,7 @@ namespace ThirdPersonCombat.StateMachine.Player
         
         protected void FaceTarget()
         {
-            if (stateMachine.Targeter.CurrentTarget==null) {return;}
+            if (stateMachine.Targeter.CurrentTarget == null) {return;}
             Quaternion currentRotation = stateMachine.transform.rotation;
 
             Vector3 lookPos = stateMachine.Targeter.CurrentTarget.transform.position - stateMachine.transform.position;

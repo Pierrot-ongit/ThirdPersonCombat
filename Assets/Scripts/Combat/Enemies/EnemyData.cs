@@ -51,9 +51,16 @@ namespace ThirdPersonCombat.Combat.Enemy
         
         [VerticalGroup("Game Data/Stats")]
         [LabelWidth(100)]
-        [Range(5,30)]
+        [Range(1, 30)]
         [GUIColor(1f,0.2f,0f)]
         public float maxTimeRoaming = 10f;
+        
+        [VerticalGroup("Game Data/Stats")]
+        [LabelWidth(100)]
+        [Range(0,30)]
+        [GUIColor(1f,0.2f,0f)]
+        public float idleWaitCooldown = 1f;
+        
 
         // TODO. 
         // Resistance to Impact

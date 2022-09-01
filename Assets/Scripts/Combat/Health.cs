@@ -31,7 +31,7 @@ namespace ThirdPersonCombat.Combat
             if (isInvulnerable) return;
 
             health = Mathf.Max(health - damage, 0);
-            Debug.Log(health);
+          //  Debug.Log(health);
             if (health <= 0)
             {
                 OnDie?.Invoke();

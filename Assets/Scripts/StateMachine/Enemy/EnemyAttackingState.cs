@@ -30,7 +30,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
         public override void Tick(float deltaTime)
         {
-            if (GetNormalizedTime(stateMachine.Animator, currentAttack.AnimationName) >= 1f)
+            if (GetNormalizedTime(stateMachine.Animator, "Attack") >= 1f)
             {
                 stateMachine.SwitchState(new EnemyChasingState(stateMachine));
                 return;

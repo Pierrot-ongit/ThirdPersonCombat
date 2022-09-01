@@ -8,7 +8,7 @@ namespace ThirdPersonCombat.Combat
     {
         [Tooltip("For projectile attack")]
         [field:SerializeField] public Transform ProjectileStartPosition { get; private set; }
-        [SerializeField] private MeleeContactDamage _contactDamage;
+        [SerializeField] private MeleeContactDamage[] _contactDamage;
 
         public AttackData CurrentAttack { get; private set; }
         public Health Target { get; private set; }
@@ -18,7 +18,10 @@ namespace ThirdPersonCombat.Combat
             CurrentAttack = attack;
             if (_contactDamage != null && CurrentAttack != null)
             {
-                _contactDamage.SetAttackDamage(CurrentAttack.Damage, CurrentAttack.Knockback);
+                foreach (MeleeContactDamage contactDamage in _contactDamage)
+                {
+                    contactDamage.SetAttackDamage(CurrentAttack.Damage, CurrentAttack.Knockback);
+                }
             }
         }
         
@@ -40,7 +43,10 @@ namespace ThirdPersonCombat.Combat
         {
             if (_contactDamage != null)
             {
-                _contactDamage.gameObject.SetActive(true);
+                foreach (MeleeContactDamage contactDamage in _contactDamage)
+                {
+                    contactDamage.gameObject.SetActive(true);
+                }
             }
         }
 
@@ -48,7 +54,10 @@ namespace ThirdPersonCombat.Combat
         {
             if (_contactDamage != null)
             {
-                _contactDamage.gameObject.SetActive(false);
+                foreach (MeleeContactDamage contactDamage in _contactDamage)
+                {
+                    contactDamage.gameObject.SetActive(false);
+                }
             }
         }
     }

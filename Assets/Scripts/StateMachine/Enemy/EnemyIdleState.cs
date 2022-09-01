@@ -8,14 +8,13 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         private readonly int LocomotionHash= Animator.StringToHash("Locomotion");
         private readonly int LocomotionSpeedHash = Animator.StringToHash("Speed");
         private const float AnimatorDampTime = 0.1f;
-        private const float waitCooldown = 2f; // TODO A passer dans EnemyData.
         private float waitRemainingTime;
         
         public EnemyIdleState(EnemyStateMachine newStateMachine, bool shouldWait = false) : base(newStateMachine)
         {
             if (shouldWait)
             {
-                waitRemainingTime = waitCooldown;
+                waitRemainingTime = stateMachine.EnemyData.idleWaitCooldown;
             }
             else
             {

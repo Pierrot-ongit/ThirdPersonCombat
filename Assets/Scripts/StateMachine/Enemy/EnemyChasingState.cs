@@ -40,6 +40,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 stateMachine.SetNextAttack(nextAttack);
             }
             
+            
             // TODO Check for light or heavy tokens.
             if (!stateMachine.AttackTokenSubscriber.RequestToken())
             {

@@ -22,3 +22,4 @@ MonoBehaviour:
   chasingRange: 8
   radiusRoaming: 5
   maxTimeRoaming: 5
+  idleWaitCooldown: 0
