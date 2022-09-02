@@ -11,6 +11,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
     public class EnemyStateMachine : StateMachine
     {
         [field:SerializeField] public Animator Animator { get; private set; }
+        [field:SerializeField] public SFXManager SFXManager { get; private set; }
         [field:SerializeField] public CharacterController Controller { get; private set; }
         [field:SerializeField] public ForceReceiver ForceReceiver { get; private set; }
         [field:SerializeField] public NavMeshAgent NavMeshAgent { get; private set; }

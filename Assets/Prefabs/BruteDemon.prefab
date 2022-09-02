@@ -141,7 +141,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.2126183, y: 0.23528877, z: -0.010667323}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -252,7 +252,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.00000064074993, y: 0.23608287, z: 0.00000011920929}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -394,7 +394,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.000030198134, y: 0.22096682, z: -0.040268194}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -632,7 +632,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.0000000037829837, y: 0.37251794, z: 0.060530346}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1073,7 +1073,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.0887789, y: -0.056737423, z: -0.011928944}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1278,7 +1278,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.00000014062971, y: 0.43123215, z: -0.00000027468195}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -1676,7 +1676,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.00000020954758, y: 0.2362396, z: 0.00000011920929}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -2319,7 +2319,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.00000007264316, y: 0.43096775, z: 0.00000017450657}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2462,7 +2462,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: -1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: -0.08877884, y: -0.056737423, z: -0.013522369}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -2892,7 +2892,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0.2126183, y: 0.23528236, z: -0.01062788}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -3199,6 +3199,61 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 772331443877483087, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Pain>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Death>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Attack>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Pain>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3437f8609c0990340b6ebde0fb42652c, type: 3}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Pain>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b6baf44bb15954f4694c2c90ca4512ee, type: 3}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Death>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed3fa12421ad02d4bb0678eeaea449c1, type: 3}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Attack>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 702102a05958ef949a1376b6b9f4f0c9, type: 3}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Attack>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0099b5c4dccb3a14796af041a05be1e9, type: 3}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Screaming>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Screaming>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f80aea90aaf07254e803bc6b0813e106, type: 3}
     - target: {fileID: 3283566067746184451, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
       propertyPath: m_Height
@@ -3322,6 +3377,61 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: eb6f5b78cb2af7f4f8e8d0f59736b90a,
         type: 2}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Pain>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Death>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Attack>k__BackingField.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Pain>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 3437f8609c0990340b6ebde0fb42652c, type: 3}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Pain>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: b6baf44bb15954f4694c2c90ca4512ee, type: 3}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Death>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: ed3fa12421ad02d4bb0678eeaea449c1, type: 3}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Attack>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 702102a05958ef949a1376b6b9f4f0c9, type: 3}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Attack>k__BackingField.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0099b5c4dccb3a14796af041a05be1e9, type: 3}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Screaming>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <HeavyAttack>k__BackingField.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <Screaming>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f80aea90aaf07254e803bc6b0813e106, type: 3}
     - target: {fileID: 8668154577701301160, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
       propertyPath: _contactDamage.Array.size

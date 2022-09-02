@@ -15,7 +15,5 @@ namespace ThirdPersonCombat
         {
             weaponLogic.SetActive(false);
         }
-        
-        // TODO Récupérer logic de AttackHandler.
     }
 }

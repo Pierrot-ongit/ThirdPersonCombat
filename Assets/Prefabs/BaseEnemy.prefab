@@ -11,14 +11,16 @@ GameObject:
   - component: {fileID: 6351173393202745408}
   - component: {fileID: 3283566067746184451}
   - component: {fileID: 879925195719505364}
+  - component: {fileID: 6472602701696902598}
   - component: {fileID: 5950820444103044148}
   - component: {fileID: 5444591914383934459}
-  - component: {fileID: 4280986706283513504}
-  - component: {fileID: 6946467320266121225}
-  - component: {fileID: 4355962092789779300}
   - component: {fileID: 1191836202222733494}
-  - component: {fileID: 8668154577701301160}
   - component: {fileID: 4281485197245675170}
+  - component: {fileID: 4355962092789779300}
+  - component: {fileID: 4280986706283513504}
+  - component: {fileID: 8668154577701301160}
+  - component: {fileID: 6946467320266121225}
+  - component: {fileID: 2933538466593964644}
   m_Layer: 0
   m_Name: BaseEnemy
   m_TagString: Enemy
@@ -52,7 +54,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.6
   m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -81,6 +83,102 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!82 &6472602701696902598
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6351173393202745411}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &5950820444103044148
 Animator:
   serializedVersion: 4
@@ -113,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1fd917451ea4aaab9745ccf4a7f2804, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4280986706283513504
+--- !u!114 &1191836202222733494
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,11 +220,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 6351173393202745411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 816a66fc6c624da4b07383279f34ce39, type: 3}
+  m_Script: {fileID: 11500000, guid: a4cd5690831446f790655ef6b2c9aa98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
---- !u!114 &6946467320266121225
+  animator: {fileID: 5950820444103044148}
+  controller: {fileID: 3283566067746184451}
+--- !u!114 &4281485197245675170
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -135,20 +234,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6351173393202745411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: beb3521759874892b7084906fca1c40e, type: 3}
+  m_Script: {fileID: 11500000, guid: 559db6c50cdf4bb9867476c60996319d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Animator>k__BackingField: {fileID: 5950820444103044148}
-  <Controller>k__BackingField: {fileID: 3283566067746184451}
-  <ForceReceiver>k__BackingField: {fileID: 4355962092789779300}
-  <NavMeshAgent>k__BackingField: {fileID: 879925195719505364}
-  <AttackHandler>k__BackingField: {fileID: 8668154577701301160}
-  <AttackTokenSubscriber>k__BackingField: {fileID: 4281485197245675170}
-  <Health>k__BackingField: {fileID: 4280986706283513504}
-  <Target>k__BackingField: {fileID: 5444591914383934459}
-  <Ragdoll>k__BackingField: {fileID: 1191836202222733494}
-  <EnemyData>k__BackingField: {fileID: 0}
-  <Attacks>k__BackingField: []
 --- !u!114 &4355962092789779300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,7 +252,7 @@ MonoBehaviour:
   controller: {fileID: 3283566067746184451}
   agent: {fileID: 879925195719505364}
   drag: 0.1
---- !u!114 &1191836202222733494
+--- !u!114 &4280986706283513504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,11 +261,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6351173393202745411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4cd5690831446f790655ef6b2c9aa98, type: 3}
+  m_Script: {fileID: 11500000, guid: 816a66fc6c624da4b07383279f34ce39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5950820444103044148}
-  controller: {fileID: 3283566067746184451}
+  maxHealth: 100
 --- !u!114 &8668154577701301160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -191,8 +278,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ProjectileStartPosition>k__BackingField: {fileID: 0}
-  _contactDamage: {fileID: 0}
---- !u!114 &4281485197245675170
+  _contactDamage:
+  - {fileID: 0}
+--- !u!114 &6946467320266121225
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -201,6 +289,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 6351173393202745411}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 559db6c50cdf4bb9867476c60996319d, type: 3}
+  m_Script: {fileID: 11500000, guid: beb3521759874892b7084906fca1c40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Animator>k__BackingField: {fileID: 5950820444103044148}
+  <SFXManager>k__BackingField: {fileID: 2933538466593964644}
+  <Controller>k__BackingField: {fileID: 3283566067746184451}
+  <ForceReceiver>k__BackingField: {fileID: 4355962092789779300}
+  <NavMeshAgent>k__BackingField: {fileID: 879925195719505364}
+  <AttackHandler>k__BackingField: {fileID: 8668154577701301160}
+  <AttackTokenSubscriber>k__BackingField: {fileID: 4281485197245675170}
+  <Health>k__BackingField: {fileID: 4280986706283513504}
+  <Target>k__BackingField: {fileID: 5444591914383934459}
+  <Ragdoll>k__BackingField: {fileID: 1191836202222733494}
+  <EnemyData>k__BackingField: {fileID: 0}
+  <Attacks>k__BackingField: []
+--- !u!114 &2933538466593964644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6351173393202745411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4f5f7e44db64c82a7409c8a9b3d66db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: {x: 0.5, y: 0.5}
+  pitch: {x: 1, y: 1}
+  <Health>k__BackingField: {fileID: 4280986706283513504}
+  <Attack>k__BackingField: []
+  <HeavyAttack>k__BackingField: []
+  <Screaming>k__BackingField: []
+  <Pain>k__BackingField: []
+  <Death>k__BackingField: []
