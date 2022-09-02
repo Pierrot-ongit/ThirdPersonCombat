@@ -1802,6 +1802,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 747df823c666ef74791a278683625f75, type: 2}
   - {fileID: 11400000, guid: 0e7cf5b62022dd34784560b79d5e38a4, type: 2}
   - {fileID: 11400000, guid: 7234f81f83e5a164bbd70985c9e6cc56, type: 2}
+  <HeavyAttacks>k__BackingField:
+  - {fileID: 11400000, guid: 2d2dc427a58f408418a4229fa79f209e, type: 2}
 --- !u!95 &1282542309296899438
 Animator:
   serializedVersion: 4

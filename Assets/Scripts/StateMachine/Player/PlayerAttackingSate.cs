@@ -7,9 +7,16 @@ namespace ThirdPersonCombat.StateMachine.Player
     {
         private PlayerAttackData currentAttack;
         private bool alreadyAppliedForce;
-        public PlayerAttackingSate(PlayerStateMachine newStateMachine, int AttackId) : base(newStateMachine)
+        public PlayerAttackingSate(PlayerStateMachine newStateMachine, int AttackId, bool heavyAttack = false) : base(newStateMachine)
         {
-            currentAttack = stateMachine.Attacks[AttackId];
+            if (heavyAttack)
+            {
+                currentAttack = stateMachine.HeavyAttacks[AttackId];
+            }
+            else
+            {
+                currentAttack = stateMachine.Attacks[AttackId];
+            }
         }
 
         public override void Enter()
@@ -36,6 +43,7 @@ namespace ThirdPersonCombat.StateMachine.Player
                 {
                     TryComboAttack(normalizedTime);
                 }
+                // TODO ALSO CHECK FOR HEAVY ATTACK INPUT.
             }
             else
             {
@@ -50,8 +58,6 @@ namespace ThirdPersonCombat.StateMachine.Player
                 }
             }
         }
-
-
 
         public override void Exit()
         {
@@ -78,15 +84,18 @@ namespace ThirdPersonCombat.StateMachine.Player
                 Vector3 targetPosition = stateMachine.transform.InverseTransformPoint(stateMachine.Targeter.CurrentTarget.transform.position);
                 // Is target in front of us ?
                 float distanceWithTarget = Vector3.Dot(Vector3.forward, targetPosition);
-                float force = currentAttack.Force > 0 ? currentAttack.Force : 5;
-                if (distanceWithTarget > Mathf.Max(force / 2, 3))
+                float maxRangeToMove = currentAttack.Range * 4;
+                if (distanceWithTarget > currentAttack.Range && distanceWithTarget < maxRangeToMove)
                 {
-                    stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * currentAttack.Force);
+                    float force = currentAttack.Force * (distanceWithTarget / maxRangeToMove);
+                    // Debug.Log(distanceWithTarget);
+                    // Debug.Log(force);
+                    stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * force);
                 }
                 else if (distanceWithTarget < 0.9)
                 {
                     // Target too close.
-                    stateMachine.ForceReceiver.AddForce(-stateMachine.transform.forward * 0.2f);
+                    stateMachine.ForceReceiver.AddForce(-stateMachine.transform.forward);
                 }
             }
             else
@@ -94,6 +103,22 @@ namespace ThirdPersonCombat.StateMachine.Player
                 stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * currentAttack.Force);
             }
             alreadyAppliedForce = true;
+        }
+
+        public bool CanChangeState(bool isAnotherAttack)
+        {
+            float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
+            if (isAnotherAttack && normalizedTime > currentAttack.ComboAttackTime)
+            {
+                return true;
+            }
+            
+            if (normalizedTime < 1f)
+            {
+                return false;
+            }
+
+            return true;
         }
 
     }

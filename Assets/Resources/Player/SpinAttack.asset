@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c66fba90fbe040eba4518f15aebcb908, type: 3}
-  m_Name: Attack2
+  m_Name: SpinAttack
   m_EditorClassIdentifier: 
-  AnimationName: Attack2
+  AnimationName: SpinAttack
   TransistionDuration: 0.1
-  Damage: 15
-  Cooldown: 0
+  Damage: 20
+  Cooldown: 2
   Range: 1
   ForceTime: 0.1
-  Force: 15
-  Knockback: 2.5
+  Force: 20
+  Knockback: 1
   ProjectilePrefab: {fileID: 0}
-  <ComboStateIndex>k__BackingField: 2
-  <ComboAttackTime>k__BackingField: 0.5
+  <ComboStateIndex>k__BackingField: -1
+  <ComboAttackTime>k__BackingField: 0.6

@@ -12,6 +12,7 @@ namespace ThirdPersonCombat
         private Vector3 impact;
         private Vector3 dampingVelocity;
         private float verticalVelocity;
+
         public Vector3 Movement => impact + Vector3.up * verticalVelocity;
 
         private void Update()
@@ -28,8 +29,8 @@ namespace ThirdPersonCombat
             impact = Vector3.SmoothDamp(impact, Vector3.zero, ref dampingVelocity, drag);
             if (agent != null && impact.sqrMagnitude < 0.2f * 0.2f)
             {
-                agent.enabled = true;
                 impact = Vector3.zero;
+                agent.enabled = true;
             }
         }
 

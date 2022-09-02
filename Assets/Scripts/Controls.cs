@@ -82,6 +82,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""HeavyAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""ecf65d6e-b421-407b-a895-43dfa8718c33"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Blocking"",
                     ""type"": ""Button"",
                     ""id"": ""922bd1bf-b254-47fe-99e2-537a1512aa4a"",
@@ -333,6 +342,28 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Blocking"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a93f17c4-3908-4e89-a6ba-e7d669c5b037"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""HeavyAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3024c753-0e39-4ad3-9705-4735e66b4d4d"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""HeavyAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -375,6 +406,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Target = m_Player.FindAction("Target", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
+        m_Player_HeavyAttack = m_Player.FindAction("HeavyAttack", throwIfNotFound: true);
         m_Player_Blocking = m_Player.FindAction("Blocking", throwIfNotFound: true);
     }
 
@@ -441,6 +473,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Target;
     private readonly InputAction m_Player_Attack;
+    private readonly InputAction m_Player_HeavyAttack;
     private readonly InputAction m_Player_Blocking;
     public struct PlayerActions
     {
@@ -452,6 +485,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Target => m_Wrapper.m_Player_Target;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
+        public InputAction @HeavyAttack => m_Wrapper.m_Player_HeavyAttack;
         public InputAction @Blocking => m_Wrapper.m_Player_Blocking;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -480,6 +514,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttack;
+                @HeavyAttack.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeavyAttack;
+                @HeavyAttack.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeavyAttack;
+                @HeavyAttack.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHeavyAttack;
                 @Blocking.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlocking;
                 @Blocking.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlocking;
                 @Blocking.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnBlocking;
@@ -505,6 +542,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @HeavyAttack.started += instance.OnHeavyAttack;
+                @HeavyAttack.performed += instance.OnHeavyAttack;
+                @HeavyAttack.canceled += instance.OnHeavyAttack;
                 @Blocking.started += instance.OnBlocking;
                 @Blocking.performed += instance.OnBlocking;
                 @Blocking.canceled += instance.OnBlocking;
@@ -538,6 +578,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnTarget(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnHeavyAttack(InputAction.CallbackContext context);
         void OnBlocking(InputAction.CallbackContext context);
     }
 }

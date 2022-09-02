@@ -10,6 +10,7 @@ namespace ThirdPersonCombat
         public event Action JumpEvent;
         public event Action DodgeEvent;
         public event Action TargetEvent;
+        public event Action HeavyEvent;
 
         private Controls controls;
         public bool IsAttacking { get; private set; }
@@ -66,6 +67,12 @@ namespace ThirdPersonCombat
                 IsAttacking = false;
             }
             
+        }
+
+        public void OnHeavyAttack(InputAction.CallbackContext context)
+        {
+            if (!context.performed) { return;}
+            HeavyEvent?.Invoke();
         }
 
         public void OnBlocking(InputAction.CallbackContext context)

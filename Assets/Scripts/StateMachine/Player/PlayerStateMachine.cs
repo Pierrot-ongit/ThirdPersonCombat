@@ -23,8 +23,9 @@ namespace ThirdPersonCombat.StateMachine.Player
         [field:SerializeField] public float DodgeDuration { get; private set; }
         [field:SerializeField] public float JumpForce { get; private set; }
         [field:SerializeField] public PlayerAttackData[] Attacks { get; private set; }
+        [field:SerializeField] public PlayerAttackData[] HeavyAttacks { get; private set; }
 
-         public Transform  MainCameraTransform { get; private set; }
+        public Transform  MainCameraTransform { get; private set; }
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -37,11 +38,13 @@ namespace ThirdPersonCombat.StateMachine.Player
         {
             Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDie += HandleDeath;
+            InputReader.HeavyEvent += HandleHeavyAttack;
         }
         private void OnDisable()
         {
             Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDeath;
+            InputReader.HeavyEvent -= HandleHeavyAttack;
         }
 
         private void HandleTakeDamage()
@@ -52,6 +55,19 @@ namespace ThirdPersonCombat.StateMachine.Player
         private void HandleDeath()
         {
             SwitchState(new PlayerDeadState(this));
+        }
+        
+        private void HandleHeavyAttack()
+        {
+            if (currentState.GetType() == typeof(PlayerAttackingSate))
+            {
+                PlayerAttackingSate attackState = currentState as PlayerAttackingSate;
+                if (attackState.CanChangeState(true))
+                {
+                    SwitchState(new PlayerAttackingSate(this, 0, true));
+                }
+            }
+            SwitchState(new PlayerAttackingSate(this, 0, true));
         }
     }
 }

@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "HeavyAttack",
+                    "type": "Button",
+                    "id": "ecf65d6e-b421-407b-a895-43dfa8718c33",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Blocking",
                     "type": "Button",
                     "id": "922bd1bf-b254-47fe-99e2-537a1512aa4a",
@@ -309,6 +318,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Blocking",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a93f17c4-3908-4e89-a6ba-e7d669c5b037",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse & Keyboard",
+                    "action": "HeavyAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3024c753-0e39-4ad3-9705-4735e66b4d4d",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "HeavyAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
