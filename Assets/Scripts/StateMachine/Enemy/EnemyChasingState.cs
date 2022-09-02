@@ -28,25 +28,21 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             }
            
             
-            if (stateMachine.nextAttack == null)
-            {
-                AttackData nextAttack = SelectNextAttack();
-                if (nextAttack == null)
-                {
-                    // No attack available (cooldowns), switch to roaming.
-                    stateMachine.SwitchState(new EnemyRoamingState(stateMachine));
-                    return;
-                }
-                stateMachine.SetNextAttack(nextAttack);
-            }
-            
-            
             // TODO Check for light or heavy tokens.
             if (!stateMachine.AttackTokenSubscriber.RequestToken())
             {
                 stateMachine.SwitchState(new EnemyRoamingState(stateMachine));
                 return;
             }
+
+            AttackData nextAttack = SelectNextAttack();
+            if (nextAttack == null)
+            {
+                // No attack available (cooldowns), switch to roaming.
+                stateMachine.SwitchState(new EnemyRoamingState(stateMachine));
+                return;
+            }
+            stateMachine.SetNextAttack(nextAttack);
             
             if (IsInAttackRange(stateMachine.nextAttack))
             {

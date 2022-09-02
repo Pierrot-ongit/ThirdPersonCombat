@@ -16,8 +16,10 @@ MonoBehaviour:
   TransistionDuration: 0.1
   Damage: 15
   Cooldown: 3
-  Range: 6
-  ForceTime: 0.31
-  Force: 10
+  Range: 30.8
+  MinimalDistance: 3
+  ForceTime: 0.17
+  Force: 40
   Knockback: 3
   ProjectilePrefab: {fileID: 0}
+  IsHeavy: 1

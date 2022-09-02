@@ -87,12 +87,11 @@ namespace ThirdPersonCombat.StateMachine.Player
                 float maxRangeToMove = currentAttack.Range * 4;
                 if (distanceWithTarget > currentAttack.Range && distanceWithTarget < maxRangeToMove)
                 {
+                    // We don't apply the full force but a proportional to the distance.
                     float force = currentAttack.Force * (distanceWithTarget / maxRangeToMove);
-                    // Debug.Log(distanceWithTarget);
-                    // Debug.Log(force);
                     stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * force);
                 }
-                else if (distanceWithTarget < 0.9)
+                else if (distanceWithTarget < 0.9f)
                 {
                     // Target too close.
                     stateMachine.ForceReceiver.AddForce(-stateMachine.transform.forward);
@@ -110,7 +109,7 @@ namespace ThirdPersonCombat.StateMachine.Player
             float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
             if (isAnotherAttack && normalizedTime > currentAttack.ComboAttackTime)
             {
-                return true;
+                return false;
             }
             
             if (normalizedTime < 1f)

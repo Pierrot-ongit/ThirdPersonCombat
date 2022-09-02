@@ -5,6 +5,7 @@ namespace ThirdPersonCombat.Combat
 {
     public class AttackTokenSubscriber : MonoBehaviour
     {
+        [field: SerializeField] public bool DontListen { get; private set; } = false; // TODO Améliorer pour un vrai system de priorité.
         public AttackTokenManager TokenManager { get; private set; }
         public int idToken { get; private set; } = -1;
 
@@ -15,6 +16,7 @@ namespace ThirdPersonCombat.Combat
 
         public bool RequestToken()
         {
+            if (DontListen) return true;
             if (this.idToken > -1) return true;
             
             int idToken = TokenManager.GetTokenAvailable();

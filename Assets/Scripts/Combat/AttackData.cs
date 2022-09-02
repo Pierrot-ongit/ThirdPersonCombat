@@ -22,7 +22,7 @@ namespace ThirdPersonCombat.Combat
         [VerticalGroup("Stats")]
         [LabelWidth(100)]
         [Range(0,60)]
-        [GUIColor(1f,1f,0f)]
+        [GUIColor(0.2f,0f,1f)]
         public int Cooldown = 0;
         
         [VerticalGroup("Stats")]
@@ -30,6 +30,13 @@ namespace ThirdPersonCombat.Combat
         [Range(1,60)]
         [GUIColor(1f,1f,0f)]
         public float Range = 1.5f;
+        
+        [VerticalGroup("Stats")]
+        [LabelWidth(100)]
+        [Range(0,60)]
+        [GUIColor(1f,1f,0f)]
+        public float MinimalDistance = 0;
+        
         
         [VerticalGroup("Stats")]
         [LabelWidth(100)]
@@ -46,10 +53,10 @@ namespace ThirdPersonCombat.Combat
         [VerticalGroup("Stats")]
         [LabelWidth(100)]
         [Range(0,50)]
-        [GUIColor(1f,1f,0f)]
+        [GUIColor(0f,0.5f,0.5f)]
         public float Knockback = 1;
         
         public Projectile ProjectilePrefab;
-        
+        [SerializeField] public bool IsHeavy;
     }
 }

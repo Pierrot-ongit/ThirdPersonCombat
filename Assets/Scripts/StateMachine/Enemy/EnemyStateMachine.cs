@@ -22,9 +22,10 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         [field:SerializeField] public Ragdoll Ragdoll { get; private set; }
         [field:SerializeField] public EnemyData EnemyData { get; private set; }
         [field:SerializeField] public AttackData[] Attacks { get; private set; }
+        [field:SerializeField] public AttackData[] HeavyAttacks { get; private set; }
 
-       
         public Dictionary<AttackData, float> Cooldowns { get; private set; }
+        public Dictionary<AttackData, float> HeavyCooldowns { get; private set; }
         public AttackData nextAttack { get; private set; }
 
         public Health Player { get; private set; }
@@ -40,7 +41,11 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             {
                 Cooldowns[attack] = 0;
             }
-
+            HeavyCooldowns = new Dictionary<AttackData, float>();
+            foreach (AttackData attack in HeavyAttacks)
+            {
+                HeavyCooldowns[attack] = 0;
+            }
 
             SwitchState(new EnemyIdleState(this));
         }
@@ -67,9 +72,16 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             SwitchState(new EnemyDeadState(this));
         }
 
-        public void SetLastAttackTime(AttackData attack, float time)
+        public void SetLastAttackTime(AttackData attack, float time, bool heavy = false)
         {
-            Cooldowns[attack] = time;
+            if (heavy)
+            {
+                HeavyCooldowns[attack] = time;
+            }
+            else
+            {
+                Cooldowns[attack] = time;
+            }
         }
 
         public void SetNextAttack(AttackData attackData)
@@ -81,7 +93,6 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, EnemyData.detectRange);
-            
         }
     }
 }

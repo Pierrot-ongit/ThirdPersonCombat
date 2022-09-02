@@ -70,17 +70,33 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             }
             // More performant to use Sqr.
             float playerDistanceSqr = (stateMachine.transform.position - stateMachine.Player.transform.position).sqrMagnitude;
-            return playerDistanceSqr <= attack.Range * attack.Range;
+            return playerDistanceSqr <= attack.Range * attack.Range
+                   && playerDistanceSqr >= attack.MinimalDistance * attack.MinimalDistance;
         }
 
 
         protected AttackData SelectNextAttack()
         {
+            foreach (AttackData attackData in stateMachine.HeavyAttacks)
+            {
+                if (Time.time - stateMachine.HeavyCooldowns[attackData] > attackData.Cooldown)
+                {
+                    if (IsInAttackRange(attackData))
+                    {
+                        return attackData;
+                    }
+                }
+            }
+            
+            
             foreach (AttackData attackData in stateMachine.Attacks)
             {
                 if (Time.time - stateMachine.Cooldowns[attackData] > attackData.Cooldown)
                 {
-                    return attackData;
+                    if (IsInAttackRange(attackData))
+                    {
+                        return attackData;
+                    }
                 }
             }
 

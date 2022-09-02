@@ -17,6 +17,12 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         public override void Tick(float deltaTime)
         {
             Move(deltaTime);
+            float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Impact");
+            if (normalizedTime >= 1f)
+            {
+                stateMachine.SwitchState(new EnemyIdleState(stateMachine));
+            }
+            
             duration -= deltaTime;
             if (duration <= 0f)
             {

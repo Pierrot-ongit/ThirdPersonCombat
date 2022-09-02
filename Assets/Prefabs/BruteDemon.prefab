@@ -3251,9 +3251,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
+      propertyPath: <HeavyAttack>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
       propertyPath: <Screaming>k__BackingField.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: f80aea90aaf07254e803bc6b0813e106, type: 3}
+    - target: {fileID: 2933538466593964644, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <HeavyAttack>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 1c2e546729b60b04aac69d5844d4af0f, type: 3}
     - target: {fileID: 3283566067746184451, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
       propertyPath: m_Height
@@ -3268,6 +3278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Center.y
       value: 1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4355962092789779300, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: drag
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 5950820444103044148, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
@@ -3376,6 +3391,17 @@ PrefabInstance:
       propertyPath: <Attacks>k__BackingField.Array.data[1]
       value: 
       objectReference: {fileID: 11400000, guid: eb6f5b78cb2af7f4f8e8d0f59736b90a,
+        type: 2}
+    - target: {fileID: 6946467320266121225, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <HeavyAttacks>k__BackingField.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6946467320266121225, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <HeavyAttacks>k__BackingField.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5658b0e4756dc184c9f8331b420647bc,
         type: 2}
     - target: {fileID: 8290186829873993817, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
