@@ -5,6 +5,7 @@ namespace ThirdPersonCombat.Combat
 {
     public class AttackTokenSubscriber : MonoBehaviour
     {
+        public bool DrawGizmos;
         [field: SerializeField] public bool DontListen { get; private set; } = false; // TODO Améliorer pour un vrai system de priorité.
         public AttackTokenManager TokenManager { get; private set; }
         public int idToken { get; private set; } = -1;
@@ -37,6 +38,7 @@ namespace ThirdPersonCombat.Combat
 
         private void OnDrawGizmos()
         {
+            if (!DrawGizmos) return;
             if (idToken > -1)
             {
                 Gizmos.color = Color.red;

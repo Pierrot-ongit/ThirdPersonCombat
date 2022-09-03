@@ -1,3 +1,4 @@
+using System;
 using ThirdPersonCombat.Combat;
 using ThirdPersonCombat.Combat.Targeting;
 using UnityEngine;
@@ -59,6 +60,19 @@ namespace ThirdPersonCombat.StateMachine.Player
         
         private void HandleHeavyAttack()
         {
+            Type currentStateType = currentState.GetType();
+            if (currentStateType == typeof(PlayerPullUpState)
+                || currentStateType == typeof(PlayerDodgingState)
+                || currentStateType == typeof(PlayerHanging)
+                || currentStateType == typeof(PlayerFallingState)
+                || currentStateType == typeof(PlayerImpactState)
+                || currentStateType == typeof(PlayerJumpingState)
+                || currentStateType == typeof(PlayerDeadState)
+                )
+            {
+                return;
+            }
+            
             if (currentState.GetType() == typeof(PlayerAttackingSate))
             {
                 PlayerAttackingSate attackState = currentState as PlayerAttackingSate;
@@ -67,7 +81,10 @@ namespace ThirdPersonCombat.StateMachine.Player
                     SwitchState(new PlayerAttackingSate(this, 0, true));
                 }
             }
-            SwitchState(new PlayerAttackingSate(this, 0, true));
+            else
+            {
+                SwitchState(new PlayerAttackingSate(this, 0, true));
+            }
         }
     }
 }

@@ -106,7 +106,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             {
                 Gizmos.color = Color.red;
                 EnemyAttackingState AttackState = currentState as EnemyAttackingState;
-                Gizmos.DrawWireSphere(transform.position, AttackState.GetAttackRange());
+             //   Gizmos.DrawWireSphere(transform.position, AttackState.GetAttackRange());
             }
             else if (stateType == typeof(EnemyChasingState))
             {

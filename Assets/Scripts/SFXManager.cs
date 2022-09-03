@@ -60,11 +60,9 @@ namespace ThirdPersonCombat
                     if (Attack.Length == 0) return;
                     chosenSound =  Attack[Random.Range(0, Attack.Length)];
                     break;
-                
                 case SoundType.HeavyAttack: 
                     if (HeavyAttack.Length == 0) return;
                     chosenSound =  HeavyAttack[Random.Range(0, HeavyAttack.Length)];
-                    Debug.Log(chosenSound);
                     break;
                 case SoundType.Screaming:
                     if (Screaming.Length == 0) return;

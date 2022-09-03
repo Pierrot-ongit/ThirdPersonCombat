@@ -16,9 +16,9 @@ MonoBehaviour:
   description: Deadly at close range.
   enemyModel: {fileID: 0}
   health: 100
-  speed: 3.99
+  speed: 3.2
   detectRange: 10
   chasingRange: 8
   radiusRoaming: 10
-  maxTimeRoaming: 10
-  idleWaitCooldown: 1
+  maxTimeRoaming: 1
+  idleWaitCooldown: 0

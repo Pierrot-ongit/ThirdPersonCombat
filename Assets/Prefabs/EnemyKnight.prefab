@@ -2556,6 +2556,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beb3521759874892b7084906fca1c40e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DrawGizmos: 0
   <Animator>k__BackingField: {fileID: 5950820444103044148}
   <SFXManager>k__BackingField: {fileID: 0}
   <Controller>k__BackingField: {fileID: 3283566067746184451}
@@ -2570,6 +2571,7 @@ MonoBehaviour:
     type: 2}
   <Attacks>k__BackingField:
   - {fileID: 11400000, guid: 7e1404b7cc66b674bbcba3aa9b4a392f, type: 2}
+  <HeavyAttacks>k__BackingField: []
 --- !u!114 &4355962092789779300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2626,6 +2628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 559db6c50cdf4bb9867476c60996319d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DrawGizmos: 0
+  <DontListen>k__BackingField: 0
 --- !u!82 &7829648082845116791
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2737,10 +2741,15 @@ MonoBehaviour:
   volume: {x: 0.5, y: 0.5}
   pitch: {x: 1, y: 1}
   <Health>k__BackingField: {fileID: 4280986706283513504}
-  <Attack>k__BackingField: []
+  <Attack>k__BackingField:
+  - {fileID: 8300000, guid: 3c32158748e96074298d829a109c61b8, type: 3}
+  - {fileID: 8300000, guid: d41cf4bd36098fd44870b74f4a829063, type: 3}
+  - {fileID: 8300000, guid: 21477a9598d5b8a40a6ad1e1fff89e2e, type: 3}
   <HeavyAttack>k__BackingField: []
   <Screaming>k__BackingField: []
-  <Pain>k__BackingField: []
+  <Pain>k__BackingField:
+  - {fileID: 8300000, guid: 5ed025b822f73d8419a8300b8235a557, type: 3}
+  - {fileID: 8300000, guid: 2d49f56cbc2daae4ab931cea79ee948d, type: 3}
   <Death>k__BackingField: []
 --- !u!1 &6394839787472354900
 GameObject:

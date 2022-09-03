@@ -33,13 +33,12 @@ public class PathDisplayer : MonoBehaviour {
         }
         
         Vector3 previousCorner = path.corners[0];
-    
         int i = 1;
         while (i < path.corners.Length) {
             Vector3 currentCorner = path.corners[i];
+            Debug.DrawLine(previousCorner, currentCorner, color, 1f);
             previousCorner = currentCorner;
             i++;
         }
-    
     }
 }

@@ -24,13 +24,20 @@ namespace ThirdPersonCombat.StateMachine.Enemy
         {
             stateMachine.Animator.CrossFadeInFixedTime(TargetingBlendTreeHash, AnimatorDampTime);
             destination = RandomNavmeshLocation(stateMachine.EnemyData.radiusRoaming);
-            stateMachine.NavMeshAgent.SetDestination(destination);
+            if (stateMachine.NavMeshAgent.isOnNavMesh)
+            {
+                stateMachine.NavMeshAgent.SetDestination(destination);
+            }
             timeRoaming = 0f;
         }
 
         public override void Tick(float deltaTime)
         {
-            
+            if (!stateMachine.NavMeshAgent.hasPath)
+            {
+                stateMachine.NavMeshAgent.SetDestination(destination);
+            }
+
             FacePlayer();
             MoveRoaming(deltaTime);
 
@@ -40,7 +47,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
                 return;
             }
             
-            if (Vector3.Distance(stateMachine.transform.position, destination) < 2f)
+            if (Vector3.Distance(stateMachine.transform.position, destination) < 1f)
             {
                 stateMachine.SwitchState(new EnemyIdleState(stateMachine, true));
                 return;

@@ -17,8 +17,8 @@ MonoBehaviour:
   Damage: 10
   Cooldown: 2
   Range: 1.5
-  MinimalDistance: 0
-  ForceTime: 0.38
+  MinimalDistance: 1
+  ForceTime: 0.1
   Force: 1
   Knockback: 1
   ProjectilePrefab: {fileID: 0}

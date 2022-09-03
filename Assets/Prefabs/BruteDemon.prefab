@@ -46941,7 +46941,7 @@ PrefabInstance:
     - target: {fileID: 4355962092789779300, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
       propertyPath: drag
-      value: 0.4
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 5950820444103044148, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}

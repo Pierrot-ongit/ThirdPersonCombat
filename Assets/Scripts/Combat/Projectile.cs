@@ -16,7 +16,8 @@ namespace ThirdPersonCombat.Combat
         GameObject instigator = null;
         Vector3 targetPoint;
         private Health target;
-
+        private bool alreadyImpacted = false;
+        
 
         private void Start()
         {
@@ -65,6 +66,8 @@ namespace ThirdPersonCombat.Combat
 
         private void OnTriggerEnter(Collider other)
         {
+            if (alreadyImpacted) return;
+            
             // We collided with ourselves (player).
             if (other.gameObject == instigator) return;
             
@@ -79,6 +82,7 @@ namespace ThirdPersonCombat.Combat
             health.DealDamage(this.damage);
             ontHit.Invoke();
             transform.parent = other.transform; // We stuck the projectile to the target.
+            alreadyImpacted = true;
             
             if (hitEffect != null)
             {

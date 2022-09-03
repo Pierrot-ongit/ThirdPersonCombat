@@ -3470,6 +3470,16 @@ PrefabInstance:
       propertyPath: <Attack>k__BackingField.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 449b0e30979e7224796619ef28c34baf, type: 3}
+    - target: {fileID: 3283566067746184451, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: m_Height
+      value: 2.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3283566067746184451, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.21
+      objectReference: {fileID: 0}
     - target: {fileID: 5950820444103044148, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
       propertyPath: m_Controller
