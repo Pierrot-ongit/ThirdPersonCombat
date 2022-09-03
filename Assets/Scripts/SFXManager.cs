@@ -63,20 +63,20 @@ namespace ThirdPersonCombat
                 
                 case SoundType.HeavyAttack: 
                     if (HeavyAttack.Length == 0) return;
-                    chosenSound =  Attack[Random.Range(0, HeavyAttack.Length)];
+                    chosenSound =  HeavyAttack[Random.Range(0, HeavyAttack.Length)];
                     Debug.Log(chosenSound);
                     break;
                 case SoundType.Screaming:
                     if (Screaming.Length == 0) return;
-                    chosenSound =  Attack[Random.Range(0, Screaming.Length)];
+                    chosenSound =  Screaming[Random.Range(0, Screaming.Length)];
                     break; 
                 case SoundType.Pain:
                     if (Pain.Length == 0) return;
-                    chosenSound =  Attack[Random.Range(0, Pain.Length)];
+                    chosenSound =  Pain[Random.Range(0, Pain.Length)];
                     break;
                 case SoundType.Death:
                     if (Death.Length == 0) return;
-                    chosenSound =  Attack[Random.Range(0, Death.Length)];
+                    chosenSound =  Death[Random.Range(0, Death.Length)];
                     break;
             }
 
@@ -85,6 +85,8 @@ namespace ThirdPersonCombat
                 return;
             }
             
+            _audioSource.volume = Random.Range(volume.x, volume.y);
+            _audioSource.pitch = Random.Range(pitch.x, pitch.y);
             _audioSource.clip = chosenSound;
             _audioSource.Play();
         }

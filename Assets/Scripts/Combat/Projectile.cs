@@ -31,7 +31,7 @@ namespace ThirdPersonCombat.Combat
         public void SetTarget(GameObject instigator, int damage, Health target = null, Vector3 targetPoint = default)
         {
             this.target = target;
-
+            this.instigator = instigator;
             this.damage = damage;
             this.targetPoint = targetPoint;
 
@@ -78,12 +78,13 @@ namespace ThirdPersonCombat.Combat
             speed = 0;
             health.DealDamage(this.damage);
             ontHit.Invoke();
-
+            transform.parent = other.transform; // We stuck the projectile to the target.
+            
             if (hitEffect != null)
             {
                 GameObject hitEffectInstance = Instantiate(hitEffect, GetAimLocation(), Quaternion.identity);
             }
-
+            
             foreach(GameObject toDestroy in destroyOnHit)
             {
                 Destroy(toDestroy);
