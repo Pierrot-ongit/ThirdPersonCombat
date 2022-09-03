@@ -3690,6 +3690,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0042555374
       objectReference: {fileID: 0}
+    - target: {fileID: 6435153901364135377, guid: 84e3988752291b047b7a60051f11b3df,
+        type: 3}
+      propertyPath: DrawGizmos
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6680076310556398737, guid: 84e3988752291b047b7a60051f11b3df,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7238,27 +7243,27 @@ PrefabInstance:
     - target: {fileID: 2030658446388103400, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.040304128
+      value: -0.040304124
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446388103400, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.85185534
+      value: 0.8518553
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446388103400, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.06628036
+      value: -0.06628035
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446392597849, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: -0.75
+      value: 2.023994
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446392597849, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5
+      value: -5.436842
       objectReference: {fileID: 0}
     - target: {fileID: 2030658446981153427, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
@@ -7298,22 +7303,22 @@ PrefabInstance:
     - target: {fileID: 2030658447040344632, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: -0.75
+      value: 2.023994
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447040344632, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5
+      value: -5.436842
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447413786828, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: -0.75
+      value: 2.023994
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447413786828, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -5
+      value: -5.436842
       objectReference: {fileID: 0}
     - target: {fileID: 2030658447497733159, guid: 5d7b482e83a4a3948ae664f3faeda292,
         type: 3}

@@ -19,7 +19,7 @@ MonoBehaviour:
   Range: 30.8
   MinimalDistance: 3
   ForceTime: 0.17
-  Force: 40
+  Force: 24
   Knockback: 3
   ProjectilePrefab: {fileID: 0}
   IsHeavy: 1

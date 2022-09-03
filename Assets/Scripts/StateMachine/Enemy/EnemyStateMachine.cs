@@ -10,6 +10,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 {
     public class EnemyStateMachine : StateMachine
     {
+        public bool DrawGizmos;
         [field:SerializeField] public Animator Animator { get; private set; }
         [field:SerializeField] public SFXManager SFXManager { get; private set; }
         [field:SerializeField] public CharacterController Controller { get; private set; }
@@ -91,8 +92,40 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
         private void OnDrawGizmosSelected()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, EnemyData.detectRange);
+            if (!DrawGizmos) return;
+            //Gizmos.color = Color.red;
+          //  Gizmos.DrawWireSphere(transform.position, EnemyData.detectRange);
+        }
+        
+        private void OnDrawGizmos()
+        {
+            if (!DrawGizmos) return;
+            if (currentState == null) return;
+            System.Type stateType = currentState.GetType();
+            if (stateType == typeof(EnemyAttackingState))
+            {
+                Gizmos.color = Color.red;
+                EnemyAttackingState AttackState = currentState as EnemyAttackingState;
+                Gizmos.DrawWireSphere(transform.position, AttackState.GetAttackRange());
+            }
+            else if (stateType == typeof(EnemyChasingState))
+            {
+                Gizmos.color = Color.yellow;
+            }
+            else if (stateType == typeof(EnemyRoamingState))
+            {
+                Gizmos.color = Color.blue;
+            }
+            else if (stateType == typeof(EnemyIdleState))
+            {
+                Gizmos.color = Color.green;
+            }
+            else if (stateType == typeof(EnemyImpactState))
+            {
+                Gizmos.color = Color.grey;
+            }
+
+            Gizmos.DrawSphere(transform.position + Vector3.up * 2, 0.2f);
         }
     }
 }

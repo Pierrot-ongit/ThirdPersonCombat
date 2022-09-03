@@ -57,24 +57,25 @@ namespace ThirdPersonCombat
             switch (soundType)
             {
                 case SoundType.Attack:
-                    if (Attack.Length < 1) return;
+                    if (Attack.Length == 0) return;
                     chosenSound =  Attack[Random.Range(0, Attack.Length)];
                     break;
                 
                 case SoundType.HeavyAttack: 
-                    if (HeavyAttack.Length < 1) return;
+                    if (HeavyAttack.Length == 0) return;
                     chosenSound =  Attack[Random.Range(0, HeavyAttack.Length)];
+                    Debug.Log(chosenSound);
                     break;
                 case SoundType.Screaming:
-                    if (Screaming.Length < 1) return;
+                    if (Screaming.Length == 0) return;
                     chosenSound =  Attack[Random.Range(0, Screaming.Length)];
                     break; 
                 case SoundType.Pain:
-                    if (Pain.Length < 1) return;
+                    if (Pain.Length == 0) return;
                     chosenSound =  Attack[Random.Range(0, Pain.Length)];
                     break;
                 case SoundType.Death:
-                    if (Death.Length < 1) return;
+                    if (Death.Length == 0) return;
                     chosenSound =  Attack[Random.Range(0, Death.Length)];
                     break;
             }

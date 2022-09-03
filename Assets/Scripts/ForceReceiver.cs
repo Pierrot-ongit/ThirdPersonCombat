@@ -30,7 +30,8 @@ namespace ThirdPersonCombat
             if (agent != null && impact.sqrMagnitude < 0.2f * 0.2f)
             {
                 impact = Vector3.zero;
-                agent.enabled = true;
+               // agent.enabled = true;
+                //agent.ResetPath();
             }
         }
 
@@ -40,7 +41,8 @@ namespace ThirdPersonCombat
             // Normally, only the enemies have a NavMeshAgent.
             if (agent != null)
             {
-                agent.enabled = false;
+             //   agent.enabled = false;
+             //agent.SetDestination(force);
             }
         }
 

@@ -3279,6 +3279,11 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 1.03
       objectReference: {fileID: 0}
+    - target: {fileID: 4281485197245675170, guid: c4321430ff0d492489b015327c8448a6,
+        type: 3}
+      propertyPath: <DontListen>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4355962092789779300, guid: c4321430ff0d492489b015327c8448a6,
         type: 3}
       propertyPath: drag

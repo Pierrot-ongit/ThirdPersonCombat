@@ -17,9 +17,11 @@ MonoBehaviour:
   Damage: 15
   Cooldown: 0
   Range: 1
+  MinimalDistance: 0
   ForceTime: 0.1
-  Force: 14
+  Force: 15
   Knockback: 5
   ProjectilePrefab: {fileID: 0}
+  IsHeavy: 0
   <ComboStateIndex>k__BackingField: -1
   <ComboAttackTime>k__BackingField: 0

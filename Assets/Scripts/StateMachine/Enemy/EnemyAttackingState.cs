@@ -30,6 +30,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
 
         public override void Tick(float deltaTime)
         {
+            Move(deltaTime);
             float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
             if (normalizedTime >= 1f)
             {
@@ -57,6 +58,11 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             }
             */
         }
+
+        public float GetAttackRange()
+        {
+            return currentAttack.Range;
+        }
         
         private void TryApplyForce()
         {
@@ -68,8 +74,7 @@ namespace ThirdPersonCombat.StateMachine.Enemy
             if (distanceWithTarget > currentAttack.MinimalDistance && distanceWithTarget < currentAttack.Range)
             {
                 // We don't apply the full force but a proportional to the distance.
-                float force = currentAttack.Force * (currentAttack.Range / distanceWithTarget);
-                Debug.Log("Force " + force);
+                float force = currentAttack.Force * (distanceWithTarget / currentAttack.Range) * 10;
                 stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * force);
             }
             // else if (distanceWithTarget < 0.9f)
