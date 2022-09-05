@@ -13,7 +13,10 @@ namespace ThirdPersonCombat.StateMachine.Player
 
         protected void Move(Vector3 motion, float deltaTime)
         {
-            stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+            if (stateMachine.Controller.enabled)
+            {
+                stateMachine.Controller.Move((motion + stateMachine.ForceReceiver.Movement) * deltaTime);
+            }
         }
         
         protected void Move(float deltaTime)

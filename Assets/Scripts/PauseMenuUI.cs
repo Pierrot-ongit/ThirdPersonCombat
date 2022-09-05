@@ -17,6 +17,8 @@ namespace ThirdPersonCombat
             if (playerController == null) return;
             Time.timeScale = 0;
             playerController.enabled = false;
+            // Cursor.lockState = CursorLockMode.None;
+            // Cursor.visible = true;
         }
 
         private void OnDisable()
@@ -24,6 +26,8 @@ namespace ThirdPersonCombat
             if (playerController == null) return;
             Time.timeScale = 1;
             playerController.enabled = true;
+            // Cursor.lockState = CursorLockMode.Locked;
+            // Cursor.visible = false;
         }
 
         public void Settings()
