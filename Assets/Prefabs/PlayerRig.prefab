@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 390548857837883144}
   m_Layer: 0
   m_Name: TargetingCamera
-  m_TagString: Untagged
+  m_TagString: TargetingCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,13 +158,13 @@ MonoBehaviour:
     m_ParentHash: 585382737
   - m_Hash: -479991077
     m_ParentHash: 756556552
-  - m_Hash: 168036699
-    m_ParentHash: -479991077
   - m_Hash: 641460239
     m_ParentHash: -479991077
   - m_Hash: 1914935554
     m_ParentHash: -479991077
   - m_Hash: 1909800350
+    m_ParentHash: -479991077
+  - m_Hash: -1645638401
     m_ParentHash: -479991077
   - m_Hash: 318495910
     m_ParentHash: 756556552
@@ -177,6 +177,26 @@ MonoBehaviour:
   - m_Hash: -1208540103
     m_ParentHash: 756556552
   - m_Hash: 747604899
+    m_ParentHash: 756556552
+  - m_Hash: 788460410
+    m_ParentHash: 756556552
+  - m_Hash: 1914514016
+    m_ParentHash: 756556552
+  - m_Hash: 1983519550
+    m_ParentHash: 756556552
+  - m_Hash: -889975963
+    m_ParentHash: 1983519550
+  - m_Hash: 1806325175
+    m_ParentHash: 1983519550
+  - m_Hash: 849033655
+    m_ParentHash: 1983519550
+  - m_Hash: -1561442673
+    m_ParentHash: 1983519550
+  - m_Hash: 699097072
+    m_ParentHash: 756556552
+  - m_Hash: -1120014632
+    m_ParentHash: 756556552
+  - m_Hash: -1817436067
     m_ParentHash: 756556552
 --- !u!1 &4749849284177338483
 GameObject:
@@ -1462,22 +1482,22 @@ PrefabInstance:
     - target: {fileID: 7327458721162749055, guid: b6de84818ebf8a849b79c6c28337ecab,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.5173079
       objectReference: {fileID: 0}
     - target: {fileID: 7327458721162749055, guid: b6de84818ebf8a849b79c6c28337ecab,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.03009573
       objectReference: {fileID: 0}
     - target: {fileID: 7327458721162749055, guid: b6de84818ebf8a849b79c6c28337ecab,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.85382634
       objectReference: {fileID: 0}
     - target: {fileID: 7327458721162749055, guid: b6de84818ebf8a849b79c6c28337ecab,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.04967357
       objectReference: {fileID: 0}
     - target: {fileID: 7327458721162749055, guid: b6de84818ebf8a849b79c6c28337ecab,
         type: 3}

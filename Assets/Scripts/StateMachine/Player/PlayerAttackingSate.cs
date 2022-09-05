@@ -43,7 +43,6 @@ namespace ThirdPersonCombat.StateMachine.Player
                 {
                     TryComboAttack(normalizedTime);
                 }
-                // TODO ALSO CHECK FOR HEAVY ATTACK INPUT.
             }
             else
             {
@@ -97,10 +96,7 @@ namespace ThirdPersonCombat.StateMachine.Player
                     stateMachine.ForceReceiver.AddForce(-stateMachine.transform.forward);
                 }
             }
-            else
-            {
-                stateMachine.ForceReceiver.AddForce(stateMachine.transform.forward * currentAttack.Force);
-            }
+
             alreadyAppliedForce = true;
         }
 

@@ -63,6 +63,7 @@ namespace ThirdPersonCombat.Combat.Targeting
             
             CurrentTarget = closestTarget;
             cinemachineTargetGroup.AddMember(CurrentTarget.transform, 1f, 2f);
+            CurrentTarget.SetLockTargetIcon();
             return true;
         }
 
@@ -70,6 +71,7 @@ namespace ThirdPersonCombat.Combat.Targeting
         {
             if (CurrentTarget == null) {return;}
             cinemachineTargetGroup.RemoveMember(CurrentTarget.transform);
+            CurrentTarget.UnsetLockTargetIcon();
             CurrentTarget = null;
         }
 
@@ -78,6 +80,7 @@ namespace ThirdPersonCombat.Combat.Targeting
             if (CurrentTarget == target)
             {
                 cinemachineTargetGroup.RemoveMember(target.transform);
+                CurrentTarget.UnsetLockTargetIcon();
                 CurrentTarget = null;
             }
 
