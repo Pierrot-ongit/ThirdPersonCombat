@@ -11,6 +11,7 @@ namespace ThirdPersonCombat
         public event Action DodgeEvent;
         public event Action TargetEvent;
         public event Action HeavyEvent;
+        public event Action MenuEvent;
 
         private Controls controls;
         public bool IsAttacking { get; private set; }
@@ -85,6 +86,12 @@ namespace ThirdPersonCombat
             {
                 IsBlocking = false;
             }
+        }
+
+        public void OnMenu(InputAction.CallbackContext context)
+        {
+            if (!context.performed) { return;}
+            MenuEvent?.Invoke();
         }
     }
 }
